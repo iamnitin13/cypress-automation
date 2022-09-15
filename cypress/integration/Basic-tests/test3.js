@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-// whenever perform operation check assertion to check op is successfull or not
+// READ DO : whenever perform operation check assertion to check op is successfull or not
 
 describe("HTML Element Test Suite", () => {
   beforeEach(() => {
@@ -11,14 +11,14 @@ describe("HTML Element Test Suite", () => {
   it("should test checkbox checked and unchecked", () => {
     cy.get("#checkBoxOption1")
       .check()
-      .should("be.checked") // behavioural use be. & for comparsion use have. with actual value to compare
+      .should("be.checked") // READ DO : behavioural use be. & for comparsion use have. with actual value to compare
       .and("have.value", "option1");
 
     cy.get("#checkBoxOption1").uncheck().should("not.be.checked");
 
     // check by passing value property
     cy.get("input[type=checkbox]")
-      .check(["option1", "option3"]) // pass multiple checkboxes with their option that need to check
+      .check(["option1", "option3"]) // READ DO : pass multiple checkboxes with their option that need to check
       .should("be.checked");
   });
 
@@ -33,7 +33,7 @@ describe("HTML Element Test Suite", () => {
 
   // dropdown testing
   it("should test static dropdown", () => {
-    cy.get("select").select("option1").should("have.value", "option1"); //pass option value or text or index to select
+    cy.get("select").select("option1").should("have.value", "option1"); // READ DO : pass option value or text or index to select
   });
 
   // autosuggest dropdown testing

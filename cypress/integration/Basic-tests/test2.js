@@ -1,10 +1,9 @@
 /// <reference types="cypress" />
 // adding item in cart ,checkout , placeorder & verify it is on country selection page
 describe("My SecondTest Suite", () => {
-  beforeEach(() => {
-    cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/");
-  });
   it("My FirstTest Case", () => {
+    cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/");
+
     cy.get(".search-keyword").type("ca");
 
     cy.get(".products").as("productLabel");
