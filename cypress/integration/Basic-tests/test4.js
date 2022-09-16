@@ -74,12 +74,13 @@ describe("Advance HTML Element Test Suite", () => {
     // READ DO : show method shows the hidden & applied on immediate parent of hidden element(selected elements);
     // READ DO : not for invisible, for that use hide method
     cy.get("div.mouse-hover-content").invoke("show");
+    /// cy.pause(); pause the test execution only not applicationn execution; later you can resume from dashboard
     cy.contains("Top").click();
     cy.url().should("include", "#top");
   });
 
   // switch tab|window testing
-  it.only("should test switch window", () => {
+  it("should test switch window", () => {
     // READ DO : cypress not provide any method for switch tab|window
     // 2nd method we will grave attribute value & act upon them ;
 

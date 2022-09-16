@@ -1,3 +1,4 @@
+import ProductPage from "../page-objects/ProductPage";
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +24,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// -- This will select given product & add it to car --
+Cypress.Commands.add("selectProduct", (productName) => {
+  const shopPage = new ProductPage();
+  shopPage.getPhoneTitle().each(($el, index, $list) => {
+    if ($el.text().includes(productName)) {
+      shopPage.addButton().eq(index).click();
+    }
+  });
+});
