@@ -8,7 +8,7 @@
 // advance html ui testing alert, popup, child window
 describe("Advance HTML Element Test Suite", () => {
   beforeEach(() => {
-    cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+    cy.visit(`${Cypress.env("url")}/AutomationPractice/`);
   });
   // alert  & pop testing
   it("should test alert & confirm popup", () => {

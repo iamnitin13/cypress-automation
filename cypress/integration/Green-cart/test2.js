@@ -2,7 +2,7 @@
 // adding item in cart ,checkout , placeorder & verify it is on country selection page
 describe("My SecondTest Suite", () => {
   it("My FirstTest Case", () => {
-    cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/");
+    cy.visit(`${Cypress.env("url")}/seleniumPractises/#/`);
 
     cy.get(".search-keyword").type("ca");
 

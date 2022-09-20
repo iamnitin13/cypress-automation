@@ -1,15 +1,17 @@
 /// <reference types="cypress"/>
-import HomePage from "../../page-objects/HomePage";
-import ProductPage from "../../page-objects/ProductPage";
+import HomePage from "../../support/pageObjects/HomePage";
+import ProductPage from "../../support/pageObjects/ProductPage";
+import CartPage from "../../support/pageObjects/CartPage";
 
 // READ DO : cypress provide a feature known as fixture which store external data or api response in json format & can be imported easliy
 describe("Framework related testsuite", () => {
   let userData;
   const homePage = new HomePage();
   const productPage = new ProductPage();
+  const cartPage = new CartPage();
 
-  beforeEach(() => {
-    cy.visit("https://www.rahulshettyacademy.com/angularpractice/");
+  before(() => {
+    cy.visit(`${Cypress.env("url")}/angularpractice/`);
 
     // run once before all test in the block; should contain all the setup realted work
     cy.fixture("example.json").then(function (data) {
@@ -53,5 +55,35 @@ describe("Framework related testsuite", () => {
 
     // after adding product click on checkout
     productPage.checkoutButton().click();
+
+    // check each product sum is equal to total product
+    let amount = 0;
+    cartPage
+      .productPrice()
+      .each(($el, index, $list) => {
+        const price = +$el.text().split(" ")[1].trim();
+        amount += price;
+      })
+      .then(() => {
+        amount;
+      });
+
+    cartPage.totalPrice().then(($el) => {
+      const price = +$el.text().split(" ")[1].trim();
+      expect(price).to.equal(amount);
+    });
+
+    // on checkout page click to checkout
+    cartPage.purchaseProduct().click();
+
+    // purchase products
+    cartPage.countryName().type("India");
+    cartPage.autoSuggestionDropDown().click();
+    cartPage.termsCheckbox().check({ force: true });
+    cartPage.submit().click();
+
+    cartPage.alertMessage().then(($el) => {
+      expect($el.text().includes("Success")).to.be.true;
+    });
   });
 });

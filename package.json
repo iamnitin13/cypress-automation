@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/cypress run",
+    "cypress:headed": "npm run test -- --headed",
+    "cypress:chrome": "npm run test --broswer chrome",
+    "cypress:recorded": "npm run test ----record --key 752b2cbd-58b2-41f0-acdd-88050a9120b4 --reporter mochawesome",
+    "cypress:greenCart": "npm run test -- --spec 'cypress/integration/Green-cart/*'"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +17,7 @@
     "cypress": "^10.7.0"
   },
   "devDependencies": {
-    "cypress-iframe": "^1.0.1"
+    "cypress-iframe": "^1.0.1",
+    "mochawesome": "^7.1.3"
   }
 }

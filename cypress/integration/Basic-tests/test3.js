@@ -4,7 +4,7 @@
 
 describe("HTML Element Test Suite", () => {
   beforeEach(() => {
-    cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+    cy.visit(`${Cypress.env("url")}/AutomationPractice/`);
   });
 
   // checkbox testing

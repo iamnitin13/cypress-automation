@@ -7,7 +7,7 @@
 
 describe("My FirstTest Suite", () => {
   it("My FirstTest Case", () => {
-    cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/");
+    cy.visit(`${Cypress.env("url")}/seleniumPractise/#/`);
 
     cy.get(".search-keyword").type("ca");
     // cy.get(".product:visible").should("have.length", 4); //jquery css selector

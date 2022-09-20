@@ -1,4 +1,4 @@
-import ProductPage from "../page-objects/ProductPage";
+import ProductPage from "../support/pageObjects/ProductPage";
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
