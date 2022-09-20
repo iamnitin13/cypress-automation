@@ -6,9 +6,13 @@
   "scripts": {
     "test": "node_modules/.bin/cypress run",
     "cypress:headed": "npm run test -- --headed",
-    "cypress:chrome": "npm run test --broswer chrome",
-    "cypress:recorded": "npm run test ----record --key 752b2cbd-58b2-41f0-acdd-88050a9120b4 --reporter mochawesome",
-    "cypress:greenCart": "npm run test -- --spec 'cypress/integration/Green-cart/*'"
+    "cypress:chrome": "npm run test --browser chrome",
+    "cypress:recorded": "npm run test -- --record --key 752b2cbd-58b2-41f0-acdd-88050a9120b4 --reporter mochawesome",
+    "cypress:greenCart": "npm run test -- --spec 'cypress/integration/Green-cart/*'",
+    "cucumber": "npx cypress-tags run --spec cypress/integration/*.feature -e TAGS='@Smoke' --headed --browser chrome"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   },
   "keywords": [],
   "author": "",
@@ -17,6 +21,7 @@
     "cypress": "^10.7.0"
   },
   "devDependencies": {
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-iframe": "^1.0.1",
     "mochawesome": "^7.1.3"
   }
