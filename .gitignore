@@ -4,3 +4,4 @@ cypress/e2e/2-advanced-examples
 cypress/screenshots
 cypress/videos
 mochawesome-report
+reports

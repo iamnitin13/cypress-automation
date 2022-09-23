@@ -30,3 +30,15 @@
     Each row is executed one time & before accessing data convert the dataTable in array using dataTable.rawTable //it is 2D array
 
 9.  Tag Name is given to each Scenario to uniquly accessing & executing particular tagged Scenario
+
+10. generate cucumber html reporter
+    --> install package npm i --save-dev multiple-cucumber-html-reporter
+    --> add below line in cypress-cucumber-preprocessor in package.json
+    "cucumberJson": {
+    "generate": true,
+    "outputFolder": "cypress/cucumber-json",
+    "filePrefix": "",
+    "fileSuffix": ".cucumber"
+    }
+    --> run cucumber spec file it will generate json file in the given path
+    --> create one cucumber-html-reporter.js file with some meta-data & run node filename
