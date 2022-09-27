@@ -42,3 +42,4 @@
     }
     --> run cucumber spec file it will generate json file in the given path
     --> create one cucumber-html-reporter.js file with some meta-data & run node filename
+11. Install neat-csv package for parsing csv file.

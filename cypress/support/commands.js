@@ -1,4 +1,5 @@
-import ProductPage from "../support/pageObjects/ProductPage";
+const ProductPage = require("../support/pageObjects/ProductPage");
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -32,5 +33,15 @@ Cypress.Commands.add("selectProduct", (productName) => {
     if ($el.text().includes(productName)) {
       shopPage.addButton().eq(index).click();
     }
+  });
+});
+
+Cypress.Commands.add("LoginApi", () => {
+  cy.request("POST", "https://rahulshettyacademy.com/api/ecom/auth/login", {
+    userEmail: Cypress.env("EMAIL"),
+    userPassword: Cypress.env("PSWD"),
+  }).then((response) => {
+    expect(response.status).to.equal(200);
+    Cypress.env("token", response.body.token);
   });
 });
